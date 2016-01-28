@@ -228,10 +228,13 @@ type ContainerInfo struct {
 	State           *State
 	Image           string
 	NetworkSettings struct {
+		EndpointSettings
+
 		IPAddress   string `json:"IpAddress"`
 		IPPrefixLen int    `json:"IpPrefixLen"`
 		Gateway     string
 		Bridge      string
+		Networks    map[string]EndpointSettings
 		Ports       map[string][]PortBinding
 	}
 	SysInitPath    string
